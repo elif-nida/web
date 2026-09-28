@@ -29,8 +29,7 @@ const SITE_DATA = {
     photo: "assets/profil.jpg", // Boş bırakılırsa baş harfler gösterilir
     socials: {
       github: "https://github.com/elif-nida",
-      // LinkedIn adresinizi ekleyin:
-      // linkedin: "https://www.linkedin.com/in/kullanici-adiniz",
+      linkedin: "https://www.linkedin.com/in/nida-%C5%9F%C3%B6len/", // nida-şölen
     },
     // GitHub istatistikleri bu kullanıcı adından canlı çekilir
     githubUsername: "elif-nida",
