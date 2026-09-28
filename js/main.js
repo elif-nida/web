@@ -19,7 +19,7 @@
       "hero.cta_projects": "Projelerimi Gör", "hero.cta_cv": "CV İndir",
       "gh.title": "GitHub Aktivitem", "gh.repos": "Açık repo", "gh.stars": "Toplam yıldız",
       "gh.followers": "Takipçi", "gh.since": "GitHub'da",
-      "edu.education": "Eğitim", "edu.languages": "Diller", "edu.certificates": "Sertifikalar",
+      "edu.education": "Eğitim", "edu.languages": "Diller", "edu.certificates": "Sertifikalar", "edu.volunteering": "Gönüllülük",
       "projects.all": "Tümü", "projects.featured": "Öne çıkan",
       "projects.code": "Kaynak kodu", "projects.demo": "Canlı demo",
       "contact.lead": "Yeni bir pozisyon, proje ya da sadece merhaba demek için — mesajınızı bekliyorum!",
@@ -37,7 +37,7 @@
       "hero.cta_projects": "View My Work", "hero.cta_cv": "Download CV",
       "gh.title": "My GitHub Activity", "gh.repos": "Public repos", "gh.stars": "Total stars",
       "gh.followers": "Followers", "gh.since": "On GitHub since",
-      "edu.education": "Education", "edu.languages": "Languages", "edu.certificates": "Certifications",
+      "edu.education": "Education", "edu.languages": "Languages", "edu.certificates": "Certifications", "edu.volunteering": "Volunteering",
       "projects.all": "All", "projects.featured": "Featured",
       "projects.code": "Source code", "projects.demo": "Live demo",
       "contact.lead": "Whether it's a new role, a project or just to say hi — my inbox is open!",
@@ -165,7 +165,16 @@
       </article>`).join("");
     $("#lang-list").innerHTML = D.languages.map((l) =>
       `<li class="card"><strong>${esc(t(l.name))}</strong><span class="lvl">${esc(t(l.level))}</span></li>`).join("");
-    $("#cert-list").innerHTML = D.certificates.map((c) => {
+    const certs = D.certificates || [], vols = D.volunteering || [];
+    $("#cert-block").hidden = !certs.length;
+    $("#vol-block").hidden = !vols.length;
+    $("#vol-list").innerHTML = vols.map((v) => `
+      <article class="edu-item card">
+        <h4>${esc(t(v.title))}</h4>
+        <div class="meta">${esc(t(v.place))}</div>
+        <p class="vol-desc">${esc(t(v.description))}</p>
+      </article>`).join("");
+    $("#cert-list").innerHTML = certs.map((c) => {
       const name = c.url
         ? `<a href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">${esc(c.name)} ↗</a>`
         : esc(c.name);
@@ -197,8 +206,8 @@
         <div class="project-top">
           ${ICONS.folder}
           <div class="project-links">
-            ${p.github ? `<a href="${esc(p.github)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(ui("projects.code"))}: ${esc(p.title)}" title="${esc(ui("projects.code"))}">${ICONS.github}</a>` : ""}
-            ${p.demo ? `<a href="${esc(p.demo)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(ui("projects.demo"))}: ${esc(p.title)}" title="${esc(ui("projects.demo"))}">${ICONS.external}</a>` : ""}
+            ${p.github ? `<a href="${esc(p.github)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(ui("projects.code"))}: ${esc(t(p.title))}" title="${esc(ui("projects.code"))}">${ICONS.github}</a>` : ""}
+            ${p.demo ? `<a href="${esc(p.demo)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(ui("projects.demo"))}: ${esc(t(p.title))}" title="${esc(ui("projects.demo"))}">${ICONS.external}</a>` : ""}
           </div>
         </div>
         <h3>${esc(t(p.title))}</h3>

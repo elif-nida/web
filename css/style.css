@@ -297,6 +297,8 @@ svg { width: 1.1em; height: 1.1em; fill: none; stroke: currentColor; stroke-widt
 .edu-item { padding: 22px 24px; margin-bottom: 14px; }
 .edu-item h4 { margin: 0 0 4px; font-size: 1.08rem; }
 .edu-item .meta { color: var(--muted); font-size: .92rem; }
+.vol-desc { margin: 10px 0 0; color: var(--muted); font-size: .95rem; }
+#cert-block:not([hidden]) + #vol-block { margin-top: 36px; }
 .edu-item time { font: .82rem var(--mono); color: var(--accent-2); }
 .cert-list li, .lang-list li {
   display: flex; justify-content: space-between; align-items: center; gap: 12px;

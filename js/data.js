@@ -7,31 +7,30 @@
  */
 const SITE_DATA = {
   profile: {
-    name: "Elif Nida",
+    name: "Elif Nida Şölen",
     initials: "EN",
-    title: { tr: "Full-Stack Geliştirici", en: "Full-Stack Developer" },
+    title: { tr: "Bilgisayar Mühendisi", en: "Computer Engineer" },
     // Hero bölümünde sırayla yazılıp silinen unvanlar
     roles: {
-      tr: ["Full-Stack Geliştirici", "Frontend Tutkunu", "Problem Çözücü"],
-      en: ["Full-Stack Developer", "Frontend Enthusiast", "Problem Solver"],
+      tr: ["Bilgisayar Mühendisi", "Full-Stack Geliştirici", "Backend & API Geliştirici"],
+      en: ["Computer Engineer", "Full-Stack Developer", "Backend & API Developer"],
     },
     tagline: {
-      tr: "Kullanıcı odaklı, hızlı ve erişilebilir web uygulamaları geliştiriyorum. Temiz kod, iyi dokümantasyon ve ekip çalışmasına önem veririm.",
-      en: "I build user-focused, fast and accessible web applications. I care about clean code, good documentation and teamwork.",
+      tr: "Python, Flask ve GraphQL ile API'ler geliştiriyor; yazılım geliştirme ile proje ve planlama süreçlerini bir araya getiriyorum. Barselona'da uluslararası bir ekipte full-stack staj deneyimim var.",
+      en: "I build APIs with Python, Flask and GraphQL, bridging software development with project and planning processes. I gained full-stack experience in an international team in Barcelona.",
     },
-    location: { tr: "İstanbul, Türkiye", en: "Istanbul, Türkiye" },
+    location: { tr: "Konya, Türkiye", en: "Konya, Türkiye" },
     // İş arayışında olduğunuzu gösteren rozet. Gizlemek için false yapın.
     openToWork: true,
-    email: "ornek@eposta.com",
-    cv: "assets/cv.pdf", // CV'nizi assets/cv.pdf olarak ekleyin
+    email: "nidaaasolen@gmail.com",
+    cv: "assets/cv.pdf",
     // İletişim formu için (isteğe bağlı): https://formspree.io adresinden ücretsiz endpoint alın
     formEndpoint: "", // Örn: "https://formspree.io/f/xxxxxxx"
-    photo: "", // Örn: "assets/profil.jpg" — boş bırakılırsa baş harfler gösterilir
+    photo: "assets/profil.jpg", // Boş bırakılırsa baş harfler gösterilir
     socials: {
       github: "https://github.com/elif-nida",
-      linkedin: "https://www.linkedin.com/in/kullanici-adiniz",
-      // twitter: "https://x.com/kullanici-adiniz",
-      // medium: "https://medium.com/@kullanici-adiniz",
+      // LinkedIn adresinizi ekleyin:
+      // linkedin: "https://www.linkedin.com/in/kullanici-adiniz",
     },
     // GitHub istatistikleri bu kullanıcı adından canlı çekilir
     githubUsername: "elif-nida",
@@ -40,125 +39,146 @@ const SITE_DATA = {
   about: {
     paragraphs: {
       tr: [
-        "Merhaba! Yazılım geliştirmeye olan ilgim, bir problemi adım adım çözmenin verdiği keyifle başladı. Bugün modern web teknolojileriyle uçtan uca ürünler geliştiriyorum.",
-        "Yeni teknolojileri öğrenmeyi, açık kaynak projelere katkı vermeyi ve öğrendiklerimi paylaşmayı seviyorum. Ölçülebilir etki yaratan, kullanıcı deneyimini iyileştiren işler üzerinde çalışmak beni motive ediyor.",
+        "Konya Gıda ve Tarım Üniversitesi'nde %100 İngilizce Bilgisayar Mühendisliği bölümünden mezun oldum; aynı zamanda Endüstri Mühendisliği yan dal programını tamamladım.",
+        "Yazılım geliştirme ve proje yönetimi alanlarına ilgi duyuyor, akademik ve profesyonel projeler aracılığıyla her iki alanda da uygulamalı deneyim kazanıyorum. Pratik çözümler geliştirmekten, ekiplerle iş birliği yapmaktan ve sürekli yeni şeyler öğrenmekten keyif alıyorum.",
       ],
       en: [
-        "Hi! My interest in software began with the joy of solving a problem step by step. Today I build end-to-end products with modern web technologies.",
-        "I love learning new technologies, contributing to open source and sharing what I learn. I'm motivated by work that creates measurable impact and improves user experience.",
+        "I graduated from Konya Food and Agriculture University's Computer Engineering program (100% English) and also completed a minor in Industrial Engineering.",
+        "I'm interested in software development and project management, and I gain hands-on experience in both through academic and professional projects. I enjoy building practical solutions, collaborating with teams and constantly learning new things.",
       ],
     },
-    // Öne çıkan sayılar — işe alımcıların ilk baktığı yer
+    // Öne çıkan bilgiler — işe alımcıların ilk baktığı yer
     highlights: [
-      { value: "2+", label: { tr: "Yıl deneyim", en: "Years experience" } },
-      { value: "15+", label: { tr: "Tamamlanan proje", en: "Projects completed" } },
-      { value: "5", label: { tr: "Sertifika", en: "Certifications" } },
+      { value: "3", label: { tr: "Kurumda iş ve staj deneyimi", en: "Companies worked at" } },
+      { value: "9 ay", label: { tr: "Yurt dışı staj (Barselona)", en: "Internship abroad (Barcelona)" } },
+      { value: "C1", label: { tr: "İngilizce", en: "English" } },
     ],
   },
 
   skills: [
     {
-      category: { tr: "Frontend", en: "Frontend" },
-      items: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS"],
+      category: { tr: "Programlama & Web", en: "Programming & Web" },
+      items: ["Python", "JavaScript", "PHP", "HTML", "CSS", "SQL", "C", "C++", "Java", "C# (.NET)"],
     },
     {
-      category: { tr: "Backend", en: "Backend" },
-      items: ["Node.js", "Express", "Python", "Django", "REST API", "GraphQL"],
+      category: { tr: "API & Backend", en: "API & Backend" },
+      items: ["Flask", "REST API", "GraphQL (Ariadne)", "Kimlik doğrulama / Auth", "MySQL", "Postman"],
     },
     {
-      category: { tr: "Veritabanı", en: "Database" },
-      items: ["PostgreSQL", "MongoDB", "MySQL", "Redis"],
+      category: { tr: "Mobil & Low-code", en: "Mobile & Low-code" },
+      items: ["FlutterFlow", "Responsive tasarım", "Form doğrulama"],
     },
     {
-      category: { tr: "Araçlar & DevOps", en: "Tools & DevOps" },
-      items: ["Git", "GitHub Actions", "Docker", "Linux", "Figma", "Jest"],
+      category: { tr: "DevOps & Araçlar", en: "DevOps & Tools" },
+      items: ["Kubernetes", "kubeconfig", "OIDC", "Git", "VS Code", "XAMPP / Apache"],
+    },
+    {
+      category: { tr: "Planlama & Raporlama", en: "Planning & Reporting" },
+      items: ["IFS ERP", "Microsoft Excel", "VBA", "Microsoft Office"],
     },
   ],
 
   experience: [
     {
-      role: { tr: "Frontend Geliştirici", en: "Frontend Developer" },
-      company: "Şirket Adı",
-      period: { tr: "2024 — Günümüz", en: "2024 — Present" },
+      role: { tr: "Planlama Mühendisi", en: "Planning Engineer" },
+      company: "Şimşek Plastik",
+      period: { tr: "Eyl 2025 — Şub 2026", en: "Sep 2025 — Feb 2026" },
       bullets: {
         tr: [
-          "React ve TypeScript ile müşteri paneli geliştirdim; sayfa yüklenme süresini %40 azalttım.",
-          "Ortak bileşen kütüphanesi oluşturarak ekip genelinde geliştirme süresini kısalttım.",
-          "Birim ve entegrasyon testleriyle kod kapsamını %30'dan %80'e çıkardım.",
+          "Üretim ve planlama süreçlerinin takibinde görev aldım.",
+          "IFS ERP sistemi üzerinden planlama ve operasyon süreçlerinde çalıştım.",
+          "Excel kullanarak veri takibi, raporlama ve planlama çalışmalarını gerçekleştirdim.",
         ],
         en: [
-          "Built a customer dashboard with React and TypeScript; reduced page load time by 40%.",
-          "Created a shared component library, shortening development time across the team.",
-          "Raised code coverage from 30% to 80% with unit and integration tests.",
+          "Tracked production and planning processes.",
+          "Worked on planning and operations processes in the IFS ERP system.",
+          "Handled data tracking, reporting and planning with Excel.",
         ],
       },
-      tech: ["React", "TypeScript", "Jest"],
+      tech: ["IFS ERP", "Excel", "VBA"],
     },
     {
-      role: { tr: "Yazılım Stajyeri", en: "Software Engineering Intern" },
-      company: "Staj Yapılan Şirket",
-      period: { tr: "Haz 2023 — Eyl 2023", en: "Jun 2023 — Sep 2023" },
+      role: { tr: "Full Stack Developer Stajyeri", en: "Full Stack Developer Intern" },
+      company: "Proceedit (BPaaS) · Barselona, İspanya",
+      period: { tr: "Ağu 2024 — May 2025", en: "Aug 2024 — May 2025" },
       bullets: {
         tr: [
-          "Node.js ile iç kullanım için REST API servisleri geliştirdim.",
-          "Agile/Scrum süreçlerinde sprint planlama ve kod incelemelerine katıldım.",
+          "Model-Based Testing (MBT) web uygulamasının geliştirilmesinde full-stack stajyer olarak çalıştım.",
+          "Python ve Flask ile REST ve GraphQL (Ariadne) API'leri geliştirdim.",
+          "FlutterFlow arayüzlerini Flask tabanlı kimlik doğrulama servisleriyle entegre ederek Sign In / Sign Up işlevlerini geliştirdim.",
+          "FlutterFlow ile kullanıcı deneyimi ve responsive tasarıma odaklanan arayüzler geliştirdim.",
+          "Üretim kümesindeki Kubernetes pod ve servisleriyle çalıştım; güvenli iletişim için kubeconfig ve OIDC giriş yapılandırmasını gerçekleştirdim.",
+          "Postman ve terminal araçlarıyla API testleri ve hata ayıklama yaptım; çevik ekip toplantılarında geliştirme, tasarım ve altyapı ekipleriyle iş birliği yaptım.",
         ],
         en: [
-          "Developed internal REST API services with Node.js.",
-          "Took part in sprint planning and code reviews in an Agile/Scrum team.",
+          "Worked as a full-stack intern on a Model-Based Testing (MBT) web application.",
+          "Developed REST and GraphQL (Ariadne) APIs with Python and Flask.",
+          "Built Sign In / Sign Up flows by integrating FlutterFlow with Flask-based authentication services.",
+          "Designed FlutterFlow interfaces focused on user experience and responsive design.",
+          "Worked with Kubernetes pods and services in the production cluster; configured kubeconfig and OIDC login for secure communication.",
+          "Tested and debugged APIs with Postman and terminal tools; collaborated with development, design and infrastructure teams in agile meetings.",
         ],
       },
-      tech: ["Node.js", "Express", "PostgreSQL"],
+      tech: ["Python", "Flask", "GraphQL", "FlutterFlow", "Kubernetes", "OIDC", "Postman"],
+    },
+    {
+      role: { tr: "Web Geliştirici Stajyeri", en: "Web Developer Intern" },
+      company: "Konya Büyükşehir Belediyesi",
+      period: { tr: "Tem 2023 — Ağu 2023", en: "Jul 2023 — Aug 2023" },
+      bullets: {
+        tr: [
+          "PHP ile web tabanlı bir yazılım envanter sistemi geliştirdim ve belediyenin kullanımına sundum.",
+          "XAMPP (Apache, MySQL, PHP) ile geliştirme ortamı kurdum; Apache sunucusunu yapılandırıp MySQL veritabanlarını yönettim.",
+          "Kayıt ekleme ve güncelleme için kullanıcı dostu formlar tasarladım; sunucu tarafı mantığını ön yüzle entegre ettim.",
+          "Projeyi gerçek iş akışlarıyla uyumlu hale getirmek için belediyenin BT ekibiyle birlikte çalıştım.",
+        ],
+        en: [
+          "Built a web-based software inventory system in PHP, now used by the municipality.",
+          "Set up a XAMPP (Apache, MySQL, PHP) environment, configured Apache and managed MySQL databases.",
+          "Designed user-friendly forms for adding and updating records and integrated server-side logic with the front end.",
+          "Worked with the municipality's IT team to align the project with real business workflows.",
+        ],
+      },
+      tech: ["PHP", "MySQL", "Apache", "HTML", "CSS"],
     },
   ],
 
   // category: filtre butonlarında kullanılır (web, mobile, data, tool ...)
+  // GitHub'a yüklediğiniz projeleri buraya ekleyin; github/demo alanları boşsa bağlantı gösterilmez.
   projects: [
     {
-      title: "E-Ticaret Platformu",
+      title: { tr: "MBT Uygulaması — Kimlik Doğrulama & API", en: "MBT App — Authentication & APIs" },
       description: {
-        tr: "Sepet, ödeme entegrasyonu ve yönetim paneli içeren tam kapsamlı e-ticaret uygulaması.",
-        en: "Full-featured e-commerce app with cart, payment integration and admin panel.",
+        tr: "Proceedit'in Model-Based Testing web uygulaması için Flask tabanlı REST/GraphQL API'leri ve FlutterFlow ile entegre Sign In / Sign Up akışı.",
+        en: "Flask-based REST/GraphQL APIs and a Sign In / Sign Up flow integrated with FlutterFlow for Proceedit's Model-Based Testing web app.",
       },
       category: "web",
-      tech: ["Next.js", "Node.js", "PostgreSQL", "Stripe"],
-      github: "https://github.com/elif-nida/proje-1",
-      demo: "https://ornek-demo.com",
-      featured: true,
-    },
-    {
-      title: "Görev Yönetim Uygulaması",
-      description: {
-        tr: "Sürükle-bırak destekli, gerçek zamanlı senkronize çalışan Kanban tahtası.",
-        en: "Real-time synced Kanban board with drag-and-drop support.",
-      },
-      category: "web",
-      tech: ["React", "Firebase", "Tailwind CSS"],
-      github: "https://github.com/elif-nida/proje-2",
+      tech: ["Python", "Flask", "GraphQL", "FlutterFlow", "Kubernetes"],
+      github: "",
       demo: "",
       featured: true,
     },
     {
-      title: "Veri Analizi Paneli",
+      title: { tr: "Yazılım Envanter Sistemi", en: "Software Inventory System" },
       description: {
-        tr: "Açık veri setlerini görselleştiren ve trend analizi yapan interaktif panel.",
-        en: "Interactive dashboard that visualizes open datasets and analyzes trends.",
+        tr: "Konya Büyükşehir Belediyesi için geliştirilen, yazılım kayıtlarının eklenip güncellendiği web tabanlı envanter sistemi. Belediyede kullanıma alındı.",
+        en: "Web-based inventory system for adding and updating software records, built for Konya Metropolitan Municipality and put into use.",
       },
-      category: "data",
-      tech: ["Python", "Pandas", "Plotly"],
-      github: "https://github.com/elif-nida/proje-3",
+      category: "web",
+      tech: ["PHP", "MySQL", "Apache", "HTML", "CSS"],
+      github: "",
       demo: "",
-      featured: false,
+      featured: true,
     },
     {
-      title: "CLI Not Asistanı",
+      title: { tr: "Kişisel Portföy Sitesi", en: "Personal Portfolio Website" },
       description: {
-        tr: "Terminalden hızlı not almayı ve etiketle aramayı sağlayan komut satırı aracı.",
-        en: "Command-line tool for quick note-taking and tag-based search from the terminal.",
+        tr: "Bu site: iki dilli, açık/koyu temalı, canlı GitHub istatistikleri gösteren ve yazdırıldığında CV'ye dönüşen, kütüphanesiz bir portföy.",
+        en: "This site: a bilingual, dependency-free portfolio with light/dark themes, live GitHub stats and a print-to-CV layout.",
       },
-      category: "tool",
-      tech: ["Node.js", "SQLite"],
-      github: "https://github.com/elif-nida/proje-4",
+      category: "web",
+      tech: ["HTML", "CSS", "JavaScript", "GitHub Actions"],
+      github: "https://github.com/elif-nida/web",
       demo: "",
       featured: false,
     },
@@ -166,17 +186,25 @@ const SITE_DATA = {
 
   education: [
     {
-      school: "Üniversite Adı",
-      degree: { tr: "Bilgisayar Mühendisliği, Lisans", en: "B.Sc. Computer Engineering" },
-      period: "2020 — 2024",
-      note: { tr: "GNO: 3.40 / 4.00", en: "GPA: 3.40 / 4.00" },
+      school: "Konya Gıda ve Tarım Üniversitesi",
+      degree: { tr: "Bilgisayar Mühendisliği, Lisans (%100 İngilizce)", en: "B.Sc. Computer Engineering (100% English)" },
+      period: "2020 — 2025",
+      note: { tr: "Endüstri Mühendisliği yan dal (%100 İngilizce)", en: "Minor in Industrial Engineering (100% English)" },
     },
   ],
 
-  certificates: [
-    { name: "Meta Front-End Developer", issuer: "Coursera", year: "2024", url: "" },
-    { name: "AWS Cloud Practitioner", issuer: "Amazon Web Services", year: "2024", url: "" },
-    { name: "Responsive Web Design", issuer: "freeCodeCamp", year: "2023", url: "" },
+  // Sertifikanız olduğunda ekleyin: { name: "...", issuer: "...", year: "2025", url: "" }
+  certificates: [],
+
+  volunteering: [
+    {
+      title: { tr: "Gönüllü Tercüman ve Rehber", en: "Volunteer Interpreter & Guide" },
+      place: { tr: "Konya'daki uluslararası etkinlikler", en: "International events in Konya" },
+      description: {
+        tr: "Uluslararası Belediye Başkanları Toplantısı'nda görev aldım; şehir maratonları ve diğer büyük ölçekli etkinliklerde yabancı misafirlere destek sağlıyorum.",
+        en: "Served at the International Mayors' Meeting; I support foreign guests at city marathons and other large-scale events.",
+      },
+    },
   ],
 
   languages: [
