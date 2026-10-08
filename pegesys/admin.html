@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PEGESYS Yönetim Paneli</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#05060f" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin">
+  <div class="bg" aria-hidden="true"><div class="aurora a1"></div><div class="aurora a2"></div><div class="grain"></div></div>
+
+  <!-- Giriş -->
+  <main class="login-wrap" id="login-view">
+    <form class="panel login" id="login-form" novalidate>
+      <a href="./" class="brand"><svg viewBox="0 0 48 48" class="brand-hex" aria-hidden="true"><path d="M24 3 42 13.5v21L24 45 6 34.5v-21Z" fill="none" stroke="#22e1ff" stroke-width="3"/></svg><span>PEGESYS</span></a>
+      <h1>Yönetim Paneli</h1>
+      <p class="muted">Gelen proje taleplerini görmek için giriş yapın.</p>
+      <div class="field"><input id="l-email" type="email" required placeholder=" " autocomplete="username" /><label for="l-email">E-posta</label></div>
+      <div class="field"><input id="l-pass" type="password" required placeholder=" " autocomplete="current-password" /><label for="l-pass">Şifre</label></div>
+      <button class="btn btn-primary full" type="submit"><span>Giriş Yap</span></button>
+      <p class="form-status" id="login-status" role="status"></p>
+    </form>
+  </main>
+
+  <!-- Panel -->
+  <div class="dash" id="dash-view" hidden>
+    <header class="dash-head">
+      <a href="./" class="brand"><svg viewBox="0 0 48 48" class="brand-hex" aria-hidden="true"><path d="M24 3 42 13.5v21L24 45 6 34.5v-21Z" fill="none" stroke="#22e1ff" stroke-width="3"/></svg><span>PEGESYS</span></a>
+      <div class="who"><span id="who"></span><button class="btn btn-ghost sm" id="logout">Çıkış</button></div>
+    </header>
+
+    <section class="tiles" aria-label="Özet">
+      <div class="tile"><span>Toplam talep</span><strong id="s-total">0</strong></div>
+      <div class="tile new"><span>Yeni</span><strong id="s-new">0</strong></div>
+      <div class="tile"><span>Okundu</span><strong id="s-read">0</strong></div>
+      <div class="tile"><span>Arşiv</span><strong id="s-archived">0</strong></div>
+    </section>
+
+    <section class="panel list-panel">
+      <div class="toolbar">
+        <div class="tabs" role="tablist" id="tabs">
+          <button role="tab" data-status="all" aria-selected="true">Tümü</button>
+          <button role="tab" data-status="new" aria-selected="false">Yeni</button>
+          <button role="tab" data-status="read" aria-selected="false">Okundu</button>
+          <button role="tab" data-status="archived" aria-selected="false">Arşiv</button>
+        </div>
+        <input class="search" id="search" type="search" placeholder="İsim, e-posta veya mesajda ara..." aria-label="Ara" />
+      </div>
+      <ul class="messages" id="messages" aria-live="polite"></ul>
+      <div class="pager" id="pager"></div>
+    </section>
+  </div>
+
+  <template id="msg-tpl">
+    <li class="msg">
+      <div class="msg-top">
+        <div><strong class="m-name"></strong> <a class="m-email"></a></div>
+        <div class="msg-meta"><span class="badge m-type"></span><span class="badge m-status"></span><time class="m-date"></time></div>
+      </div>
+      <p class="m-body"></p>
+      <div class="msg-actions">
+        <a class="btn btn-ghost sm m-reply">Yanıtla</a>
+        <button class="btn btn-ghost sm" data-act="read">Okundu</button>
+        <button class="btn btn-ghost sm" data-act="archived">Arşivle</button>
+        <button class="btn btn-ghost sm" data-act="new">Yeni yap</button>
+        <button class="btn btn-ghost sm danger" data-act="delete">Sil</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+# Render "Blueprint": PEGESYS backend'ini ve PostgreSQL veritabanını tek tıkla kurar.
+# Render panelinde New → Blueprint → bu repoyu seçin.
+services:
+  - type: web
+    name: pegesys-api
+    runtime: python
+    plan: free
+    rootDir: pegesys-api
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --preload -w 2 -b 0.0.0.0:$PORT wsgi:app
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: pegesys-db
+          property: connectionString
+      - key: ALLOWED_ORIGINS
+        value: https://elif-nida.github.io
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+
+databases:
+  - name: pegesys-db
+    plan: free
+    databaseName: pegesys
