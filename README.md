@@ -62,3 +62,7 @@ python3 -m http.server 8000
 ## Lisans
 
 MIT — dilediğiniz gibi kullanabilir ve değiştirebilirsiniz.
+
+## PEGESYS konsept sitesi
+
+`pegesys/` klasöründe, PEGESYS için hazırlanmış animasyonlu bir konsept web sitesi bulunur (parçacık ağı, aurora arka plan, 3D küre, kendi kendine yazan terminal vb.). Yayınlandığında `https://<kullanici-adiniz>.github.io/<repo-adi>/pegesys/` adresinde açılır. Kütüphane gerektirmez; `pegesys/index.html`, `style.css` ve `app.js` dosyalarından oluşur.
