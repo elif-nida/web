@@ -371,3 +371,14 @@ svg { display: block; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; filter: none; }
 }
+
+/* ---------- Form: KVKK onayı ve bot tuzağı ---------- */
+.field.consent { display: flex; gap: 12px; align-items: flex-start; }
+.field.consent input { appearance: none; -webkit-appearance: none; flex: none; width: 22px; height: 22px; padding: 0; margin-top: 2px; border-radius: 7px; cursor: pointer; display: grid; place-items: center; }
+.field.consent input:checked { background: var(--grad); border-color: transparent; }
+.field.consent input:checked::after { content: "✓"; color: #fff; font-size: 13px; font-weight: 700; }
+.field.consent label { position: static; transform: none !important; font-size: 13.5px !important; color: var(--muted) !important; line-height: 1.55; pointer-events: auto; }
+.field.consent label a { color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; }
+.field.consent.invalid input { border-color: #ff5f7a; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.btn:disabled { opacity: .7; cursor: wait; }

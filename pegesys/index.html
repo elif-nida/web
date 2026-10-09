@@ -235,6 +235,12 @@
           <label for="f-type">Proje türü</label>
         </div>
         <div class="field full"><textarea id="f-msg" name="message" rows="4" required placeholder=" "></textarea><label for="f-msg">Projenizden bahsedin</label></div>
+        <div class="field full consent">
+          <input id="f-consent" name="consent" type="checkbox" required />
+          <label for="f-consent">Kişisel verilerimin, talebime dönüş yapılması amacıyla <a href="kvkk.html" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a> kapsamında işlenmesini kabul ediyorum.</label>
+        </div>
+        <!-- Botları yakalamak için gizli alan: insanlar görmez -->
+        <div class="hp" aria-hidden="true"><label for="f-website">Web siteniz</label><input id="f-website" name="website" tabindex="-1" autocomplete="off" /></div>
         <button class="btn btn-primary magnetic full" type="submit"><span>Gönder</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         <p class="form-status" id="form-status" role="status"></p>
       </form>
@@ -249,6 +255,7 @@
     <p class="concept-note">Bu site, PEGESYS için <a href="../">Elif Nida Şölen</a> tarafından hazırlanmış bağımsız bir <strong>konsept tasarım çalışmasıdır</strong>; firmanın resmî web sitesi değildir.</p>
   </footer>
 
+  <script src="config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

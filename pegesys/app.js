@@ -293,44 +293,62 @@
   }
 
   /* ---------- İletişim formu ----------
-     Konsept sürümde mesaj gönderilmez. Gerçek kullanımda
-     FORM_ENDPOINT alanına Formspree vb. bir adres yazın. */
-  const FORM_ENDPOINT = "";
+     config.js içinde API adresi varsa mesaj backend'e gönderilir,
+     yoksa form demo modunda çalışır. */
+  const API = (window.PEGESYS_CONFIG || {}).apiUrl || "";
   const form = $("#form"), status = $("#form-status");
+  const fields = $$(".field:not(.consent) :is(input, textarea, select)", form);
+  const consent = $("#f-consent");
+  const showStatus = (cls, text) => { status.className = "form-status " + cls; status.textContent = text; };
+  const markInvalid = (el, bad) => el.closest(".field").classList.toggle("invalid", bad);
+
   form.addEventListener("submit", async e => {
     e.preventDefault();
     let ok = true;
-    $$("input, textarea, select", form).forEach(f => {
+    fields.forEach(f => {
       const valid = f.checkValidity() && f.value.trim() !== "";
-      f.closest(".field").classList.toggle("invalid", !valid);
+      markInvalid(f, !valid);
       if (!valid) ok = false;
     });
-    if (!ok) {
-      status.className = "form-status err";
-      status.textContent = "Lütfen tüm alanları doğru şekilde doldurun.";
-      return;
-    }
-    const btn = $("button[type=submit] span", form);
-    btn.textContent = "Gönderiliyor...";
+    markInvalid(consent, !consent.checked);
+    if (!consent.checked) ok = false;
+    if (!ok) return showStatus("err", "Lütfen tüm alanları doğru şekilde doldurun.");
+
+    const btn = $("button[type=submit]", form), label = $("span", btn);
+    btn.disabled = true;
+    label.textContent = "Gönderiliyor...";
     try {
-      if (FORM_ENDPOINT) {
-        const res = await fetch(FORM_ENDPOINT, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } });
-        if (!res.ok) throw new Error();
+      if (API) {
+        const payload = Object.fromEntries(new FormData(form));
+        payload.consent = consent.checked;
+        const res = await fetch(API + "/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          // Sunucunun işaretlediği alanları kırmızı yap
+          Object.keys(data.fields || {}).forEach(name => {
+            const el = form.elements[name];
+            if (el && el.closest) markInvalid(el, true);
+          });
+          throw new Error(data.error);
+        }
       } else {
         await new Promise(r => setTimeout(r, 900));
       }
-      status.className = "form-status ok";
-      status.textContent = FORM_ENDPOINT
+      showStatus("ok", API
         ? "Teşekkürler! Mesajınız bize ulaştı, en kısa sürede dönüş yapacağız."
-        : "Teşekkürler! (Bu bir konsept demo olduğu için mesaj gönderilmedi.)";
+        : "Teşekkürler! (Bu bir konsept demo olduğu için mesaj gönderilmedi.)");
       form.reset();
-    } catch {
-      status.className = "form-status err";
-      status.textContent = "Bir sorun oluştu, lütfen tekrar deneyin.";
+    } catch (err) {
+      showStatus("err", (err && err.message) || "Sunucuya ulaşılamadı, lütfen tekrar deneyin.");
     }
-    btn.textContent = "Gönder";
+    btn.disabled = false;
+    label.textContent = "Gönder";
   });
   $$("input, textarea, select", form).forEach(f =>
-    f.addEventListener("input", () => f.closest(".field").classList.remove("invalid"))
+    f.addEventListener(f.type === "checkbox" ? "change" : "input", () => markInvalid(f, false))
   );
 })();
